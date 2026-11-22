@@ -1,0 +1,20 @@
+
+---
+- name: Update package cache
+  apt:
+    update_cache: yes
+
+- name: Install Nginx
+  apt:
+    name: nginx
+    state: present
+
+- name: Create web page
+  copy:
+    content: "<h1>Web Server node-1 is running!</h1>"
+    dest: /var/www/html/index.html
+
+- name: Start Nginx
+  command: nginx
+  args:
+    creates: /run/nginx.pid

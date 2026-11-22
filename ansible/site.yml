@@ -1,0 +1,16 @@
+
+---
+- name: Configure Web Server
+  hosts: webservers
+  roles:
+    - web
+
+- name: Configure Application Server
+  hosts: appservers
+  roles:
+    - app
+
+- name: Configure Database Server
+  hosts: dbservers
+  roles:
+    - db
